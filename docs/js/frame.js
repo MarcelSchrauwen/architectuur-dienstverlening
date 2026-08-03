@@ -144,44 +144,6 @@ function sortTable(tblSelector) {
 $(document).ready(function() {
 	// Set heigh of panels the first time
 	setRootPanelHeight();
-
-	reorderRelationColumns();
-
-function reorderRelationColumns() {
-
-    let table = $('#model-relations');
-
-    if (!table.length) {
-        return;
-    }
-
-    // Header aanpassen
-    table.find('thead tr').each(function () {
-
-        let cols = $(this).children();
-
-        // Alleen de rij met 4 kolommen aanpassen
-        if (cols.length === 4) {
-            $(this).append(cols.eq(2)); // Source
-            $(this).append(cols.eq(0)); // Name
-            $(this).append(cols.eq(3)); // Target
-            $(this).append(cols.eq(1)); // Type
-        }
-    });
-
-    // Data-rijen aanpassen
-    table.find('tbody tr').each(function () {
-
-        let cols = $(this).children();
-
-        if (cols.length === 4) {
-            $(this).append(cols.eq(2)); // Source
-            $(this).append(cols.eq(0)); // Name
-            $(this).append(cols.eq(3)); // Target
-            $(this).append(cols.eq(1)); // Type
-        }
-    });
-}
 	
 	// Compute panel height on resize
 	$(window).resize(function (e) {
